@@ -5,8 +5,7 @@
 Write a class named Account that implements the following public interface:
 
 ``` js
-public interface AccountService
-{
+public interface AccountService {
   void deposit(int amount) 
   void withdraw(int amount) 
   void printStatement()
