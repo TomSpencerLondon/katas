@@ -8,5 +8,5 @@ export const fizzBuzz = (n: number): string => {
   if (n % 5 === 0) {
     return 'Buzz';
   }
-  return `${n}`;
+  return n.toString();
 };
