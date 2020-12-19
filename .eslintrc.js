@@ -1,28 +1,37 @@
 module.exports = {
   env: {
+    es2020: true,
     node: true,
+    jest: true,
   },
   extends: [
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
+    'airbnb-base',
   ],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-  },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 11,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint"],
+  plugins: [
+    '@typescript-eslint',
+  ],
   rules: {
-    "@typescript-eslint/no-var-requires": ["off", { extensions: [".js"] }],
-    "import/no-unresolved": "off",
-    "no-useless-return": "error",
+    'max-len': ['error', {
+      code: 120,
+      ignoreUrls: true,
+      ignoreTemplateLiterals: true,
+    }],
+    'arrow-body-style': ['error', 'as-needed'],
+    '@typescript-eslint/no-explicit-any': 'off',
+    'import/extensions': ['error', 'never'],
+    'import/prefer-default-export': 'off',
+    'no-useless-constructor': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
