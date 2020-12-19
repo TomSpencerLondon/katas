@@ -26,6 +26,10 @@ module.exports = {
     'import/extensions': ['error', 'never'],
     'import/prefer-default-export': 'off',
     'no-useless-constructor': 'off',
+    'no-unused-vars': 'off',
+    'no-empty-function': 'off',
+    semi: 'off',
+    '@typescript-eslint/semi': ['error'],
   },
   settings: {
     'import/resolver': {
