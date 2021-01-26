@@ -1,6 +1,6 @@
 import { getMaximumPathSum } from '../../src';
 
-describe('Maximum Path Sum 1', () => {
+xdescribe('Maximum Path Sum 1', () => {
   it('should get the maximum path sum for the simple triange input', () => {
     // Arrange
     const triangle = `3
