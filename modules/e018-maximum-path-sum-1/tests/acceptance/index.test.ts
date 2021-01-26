@@ -1,7 +1,7 @@
-import { getMaximumPathSumForTriangle } from '../../src';
+import { getMaximumPathSum } from '../../src';
 
 describe('Maximum Path Sum 1', () => {
-  it('should solve the simple triange input', () => {
+  it('should get the maximum path sum for the simple triange input', () => {
     // Arrange
     const triangle = `3
 7 4
@@ -9,13 +9,13 @@ describe('Maximum Path Sum 1', () => {
 8 5 9 3`;
 
     // Act
-    const maximumPathSum = getMaximumPathSumForTriangle(triangle);
+    const maximumPathSum = getMaximumPathSum(triangle);
 
     // Assert
     expect(maximumPathSum).toBe(23);
   });
 
-  it('should solve the puzzle triange input', () => {
+  it('should get the maximum path sum for the puzzle triange input', () => {
     // Arrange
     const triangle = `75
 95 64
@@ -34,7 +34,7 @@ describe('Maximum Path Sum 1', () => {
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`;
 
     // Act
-    const maximumPathSum = getMaximumPathSumForTriangle(triangle);
+    const maximumPathSum = getMaximumPathSum(triangle);
 
     // Assert
     expect(maximumPathSum).toBe(-1);
