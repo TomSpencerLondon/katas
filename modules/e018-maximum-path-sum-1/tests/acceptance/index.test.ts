@@ -15,7 +15,7 @@ describe('Maximum Path Sum 1', () => {
     expect(maximumPathSum).toBe(23);
   });
 
-  it.skip('should solve the puzzle triange input', () => {
+  it('should solve the puzzle triange input', () => {
     // Arrange
     const triangle = `75
 95 64
