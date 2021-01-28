@@ -1,7 +1,3 @@
-export const getMaximumPathSum = (inputTriangle: string): number => {
-  throw new Error('Not implemented');
-};
-
 export type Tree = {
   value: number;
   child1: Tree;
@@ -32,4 +28,21 @@ const parseTreeFromGrid = (grid: number[][], x: number, y: number): Tree => {
 export const parseInput = (input: string): Tree => {
   const grid = transformInputToNumbers(input);
   return parseTreeFromGrid(grid, 0, 0);
+};
+
+export const getSumFromTree = (tree: Tree): number => {
+  if (!('child1' in tree)) {
+    return tree.value;
+  }
+
+  const { value } = tree;
+  const child1Value = getSumFromTree(tree.child1);
+  const child2Value = getSumFromTree(tree.child2);
+
+  return value + Math.max(child1Value, child2Value);
+};
+
+export const getMaximumPathSum = (inputTriangle: string): number => {
+  const tree = parseInput(inputTriangle);
+  return getSumFromTree(tree);
 };
