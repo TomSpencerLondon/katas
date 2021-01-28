@@ -46,3 +46,14 @@ export const getMaximumPathSum = (inputTriangle: string): number => {
   const tree = parseInput(inputTriangle);
   return getSumFromTree(tree);
 };
+
+export const getMaxPathSumDynamic = (inputTriangle: string): number => {
+  const nestedNumbers = transformInputToNumbers(inputTriangle);
+  for (let i = nestedNumbers.length - 1; i > 0; i -= 1) {
+    for (let j = 0; j < nestedNumbers[i].length; j += 1) {
+      nestedNumbers[i - 1][j] += Math.max(nestedNumbers[i][j], nestedNumbers[i][j + 1]);
+    }
+  }
+
+  return nestedNumbers[0][0];
+};
