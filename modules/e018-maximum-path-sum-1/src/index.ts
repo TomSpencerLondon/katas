@@ -26,7 +26,7 @@ const parseTreeFromGrid = (grid: number[][], x: number, y: number): Tree => {
 };
 
 export const parseInput = (input: string): Tree => {
-  const grid = transformInputToNumbers(input);
+  const grid: number[][] = transformInputToNumbers(input);
   return parseTreeFromGrid(grid, 0, 0);
 };
 
@@ -43,15 +43,15 @@ export const getSumFromTree = (tree: Tree): number => {
 };
 
 export const getMaximumPathSum = (inputTriangle: string): number => {
-  const tree = parseInput(inputTriangle);
+  const tree: Tree = parseInput(inputTriangle);
   return getSumFromTree(tree);
 };
 
 export const getMaxPathSumDynamic = (inputTriangle: string): number => {
   const nestedNumbers = transformInputToNumbers(inputTriangle);
-  for (let i = nestedNumbers.length - 1; i > 0; i -= 1) {
-    for (let j = 0; j < nestedNumbers[i].length; j += 1) {
-      nestedNumbers[i - 1][j] += Math.max(nestedNumbers[i][j], nestedNumbers[i][j + 1]);
+  for (let row = nestedNumbers.length - 1; row > 0; row -= 1) {
+    for (let col = 0; col < nestedNumbers[row].length; col += 1) {
+      nestedNumbers[row - 1][col] += Math.max(nestedNumbers[row][col], nestedNumbers[row][col + 1]);
     }
   }
 
