@@ -115,3 +115,17 @@ export const getSundays = (startYear: number, endYear: number): number => {
   }
   return numberOfSundays;
 };
+
+export const getSundaysWithCalendar = (startYear: number, endYear: number): number => {
+  let sundays = 0;
+
+  for (let year = startYear; year <= endYear; year += 1) {
+    for (let month = 0; month < 12; month += 1) {
+      if ((new Date(year, month, 1)).getDay() === 6) {
+        sundays += 1;
+      }
+    }
+  }
+
+  return sundays;
+};
