@@ -1,19 +1,19 @@
 import { getFactorial } from '../../e020-factorial-digit-sum/src';
 
-type Numbers = {[key: string]: number[]};
-const numbers: Numbers = {};
+type ProperDivisors = {[key: string]: number[]};
+const divisors: ProperDivisors = {};
 
 export const properDivisors = (input: number): number[] => {
   const result: number[] = [];
-  if (!(input.toString() in numbers)) {
-    numbers[input.toString()] = [];
+  if (!(input.toString() in divisors)) {
+    divisors[input.toString()] = [];
   } else {
-    return numbers[input.toString()];
+    return divisors[input.toString()];
   }
   for (let i = 0; i < (input / 2) + 1; i += 1) {
     if (input % i === 0) {
       result.push(i);
-      numbers[input.toString()].push(i);
+      divisors[input.toString()].push(i);
     }
   }
 
@@ -38,7 +38,7 @@ export const findAmicableSum = (input: number): number => {
   return result.reduce((number, acc) => number + acc, 0);
 };
 
-export const amicableSum = (input: number): number => {
+export const amicableSumOfNumbersBelow = (input: number): number => {
   let result: number = 0;
   for (let i = 0; i < input; i += 1) {
     result += findAmicableSum(i);
