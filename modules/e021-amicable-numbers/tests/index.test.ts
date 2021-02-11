@@ -1,5 +1,5 @@
 import {
-  findAmicableSum, areAmicableNumbers, properDivisors, sumOfDivisorsOf, amicableSumOfNumbersBelow,
+  isAmicableNumber, areAmicableNumbers, properDivisors, sumOfDivisorsOf, amicableSumOfNumbersBelow,
 } from '../src';
 
 describe('properDivisors', () => {
@@ -38,7 +38,7 @@ describe('areAmicableNumbers', () => {
 
 describe('amicableNumbersSum', () => {
   it('returns correct sum for amicable numbers from 300', () => {
-    const sum = findAmicableSum(284);
+    const sum = isAmicableNumber(284);
     expect(sum).toEqual(504);
   });
 });
