@@ -1,7 +1,3 @@
-export const sumOfUncreatableItegersByAbundance = (): BigInt => {
-  throw new Error('Unimplemented!');
-};
-
 export const properDivisors = (input: number): number[] => {
   const result: number[] = [];
   for (let i = 1; i <= Math.sqrt(input); i += 1) {
@@ -24,13 +20,38 @@ export const isAbundantNumber = (input: number): boolean => {
   return sumOfDivisorsOfInput > input;
 };
 
-export const listOfAbundantNumbers = ():number[] => {
+export const listOfAbundantNumbers = (input: number):number[] => {
   const result: number[] = [];
-  for (let i = 0; i <= 28123; i += 1) {
+  for (let i = 0; i <= input; i += 1) {
     if (isAbundantNumber(i)) {
       result.push(i);
     }
   }
 
   return result;
+};
+
+export const listOfSumsOfAbundantsUpTo = (input: number): number[] => {
+  const numbers = listOfAbundantNumbers(input);
+  const result: number[] = [];
+  for (let i = 0; i < numbers.length - 1; i += 1) {
+    for (let j = i; j < numbers.length - 1; j += 1) {
+      if (numbers[i] + numbers[j] < input) {
+        result.push(numbers[i] + numbers[j]);
+      }
+    }
+  }
+
+  return result;
+};
+
+function sumOfSumsOfAbundants(input: number) {
+  return listOfSumsOfAbundantsUpTo(input)
+    .reduce((number, acc) => number + acc, 0);
+}
+
+export const sumOfUncreatableItegersByAbundance = (input: number): number => {
+  const sum = sumOfSumsOfAbundants(input);
+  const result: number = ((input * (input + 1)) / 2);
+  return result - sum;
 };

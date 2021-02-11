@@ -1,4 +1,9 @@
-import { isAbundantNumber, listOfAbundantNumbers } from '../src';
+import {
+  isAbundantNumber,
+  listOfAbundantNumbers,
+  listOfSumsOfAbundantsUpTo,
+  sumOfUncreatableItegersByAbundance
+} from '../src';
 
 describe('isAbundantNumber', () => {
   it('returns true for 12', () => {
@@ -34,8 +39,23 @@ describe('isAbundantNumber', () => {
 // 12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60, 66
 describe('listOfAbundantNumbers', () => {
   it('returns a list of abundant numbers', () => {
-    const result: number[] = listOfAbundantNumbers();
+    const result: number[] = listOfAbundantNumbers(60);
 
-    expect(result.slice(0, 11)).toEqual([12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56]);
+    expect(result).toEqual([12, 18, 20, 24, 30, 36, 40, 42, 48, 54, 56, 60]);
+  });
+});
+
+describe('listOfSumsOfAbundantsUpTo', () => {
+  it('returns a list of numbers created from two abundant numbers', () => {
+    const input: number = 30;
+    const result: number[] = listOfSumsOfAbundantsUpTo(input);
+    expect(result).toEqual([24]);
+  });
+});
+
+describe('sumOfUncreatableItegersByAbundance', () => {
+  it('returns sum numbers that cannot be made by abundant numbers', () => {
+    const result: number = sumOfUncreatableItegersByAbundance(30);
+    expect(result).toEqual(441);
   });
 });

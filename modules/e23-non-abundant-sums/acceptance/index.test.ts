@@ -10,7 +10,7 @@ import { sumOfUncreatableItegersByAbundance } from '../src';
 
 describe('sumOfUncreatableItegersByAbundance', () => {
   it('returns the sum of all positive numbers which cannot be written as the sum of two abundant numbers', () => {
-    const sum: BigInt = sumOfUncreatableItegersByAbundance();
-    expect(sum).toEqual(100000n);
+    const sum: number = sumOfUncreatableItegersByAbundance(28123);
+    expect(sum).toEqual(5000);
   });
 });
