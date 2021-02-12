@@ -36,13 +36,15 @@ export const listOfSumsOfAbundantsUpTo = (input: number): number[] => {
   const result: number[] = [];
   for (let i = 0; i < numbers.length - 1; i += 1) {
     for (let j = i; j < numbers.length - 1; j += 1) {
-      if (numbers[i] + numbers[j] < input) {
+      if ((numbers[i] + numbers[j] <= input)) {
         result.push(numbers[i] + numbers[j]);
       }
     }
   }
 
-  return result;
+  const temporary: Set<number> = new Set(result);
+
+  return Array.from(temporary);
 };
 
 function sumOfSumsOfAbundants(input: number) {

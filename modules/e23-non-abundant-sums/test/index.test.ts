@@ -56,6 +56,16 @@ describe('listOfSumsOfAbundantsUpTo', () => {
 describe('sumOfUncreatableItegersByAbundance', () => {
   it('returns sum numbers that cannot be made by abundant numbers', () => {
     const result: number = sumOfUncreatableItegersByAbundance(30);
-    expect(result).toEqual(441);
+    expect(result).toEqual(411);
+  });
+
+  it('returns sum numbers that cannot be made by abundant numbers', () => {
+    const result: number = sumOfUncreatableItegersByAbundance(50);
+    expect(result).toEqual(891);
+  });
+
+  it('returns sum numbers that cannot be made by abundant numbers', () => {
+    const result: number = sumOfUncreatableItegersByAbundance(100);
+    expect(result).toEqual(2766);
   });
 });
