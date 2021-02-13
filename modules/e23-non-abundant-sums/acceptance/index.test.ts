@@ -14,3 +14,4 @@ describe('sumOfUncreatableItegersByAbundance', () => {
     expect(sum).toEqual(4179871);
   });
 });
+
