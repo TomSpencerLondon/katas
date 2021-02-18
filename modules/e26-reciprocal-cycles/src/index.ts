@@ -1,25 +1,32 @@
-export function cycleCount(numerator: number, denominator: number): number {
-  const newNumerator: number = 10;
-  const remainder: number = newNumerator % denominator;
-  let nextNumerator: number = remainder * 10;
-  let count = 1;
-  while (nextNumerator !== newNumerator) {
-    nextNumerator %= denominator;
-    nextNumerator *= 10;
-    count += 1;
+export function cycleCount(denominator: number): number {
+  let remainder: number = 1 % denominator;
+  const seenRemainders: Map<number, number> = new Map();
+  let index: number = 0;
+  while (remainder !== 0 && !seenRemainders.has(remainder)) {
+    seenRemainders.set(remainder, index);
+    remainder *= 10;
+    remainder %= denominator;
+    index += 1;
   }
 
-  return count;
+  if (remainder === 0) {
+    return 0;
+  }
+  console.log(remainder);
+  console.log(seenRemainders);
+  console.log(index);
+  return index - (seenRemainders.get(remainder) as number);
 }
 
 export function longestRecurringCycle(limit: number): number {
-  let result: number = 0;
-  for (let i = limit; i > 1; i -= 1) {
-    const currentResult: number = cycleCount(1, i);
-    if (currentResult > result) {
-      result = currentResult;
+  let longestCycle: number = 0;
+  let bestDenominator: number = 0;
+  for (let i = 0; i <= limit; i += 1) {
+    const cycleLength = cycleCount(i);
+    if (cycleLength > longestCycle) {
+      bestDenominator = i;
+      longestCycle = cycleLength;
     }
   }
-
-  return result;
+  return bestDenominator;
 }
