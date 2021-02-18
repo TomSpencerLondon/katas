@@ -12,6 +12,7 @@ describe('cycleCount', () => {
     [4, 0],
     [6, 1],
     [7, 6],
+    [12, 1],
   ])('returns 0 for 2', (denominator: number, expected: number) => {
     expect(cycleCount(denominator)).toEqual(expected);
   });
