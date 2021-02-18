@@ -12,9 +12,6 @@ export function cycleCount(denominator: number): number {
   if (remainder === 0) {
     return 0;
   }
-  console.log(remainder);
-  console.log(seenRemainders);
-  console.log(index);
   return index - (seenRemainders.get(remainder) as number);
 }
 
