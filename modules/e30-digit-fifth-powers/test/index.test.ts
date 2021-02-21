@@ -1,4 +1,4 @@
-import { isSumOfPowersOf, sumOfPowers, sumOfPowersOf } from '../acceptance/index.test';
+import { isSumOfPowersOf, limit, sumOfPowersOf } from '../src/index';
 
 describe('isSumOfPowersOf', () => {
   it('returns true if digits can be written as sum of powers of n', () => {
@@ -26,5 +26,12 @@ describe('sumOfPowersOf', () => {
   it('returns the same sum for the input', () => {
     const result = sumOfPowersOf(1634, 4);
     expect(result).toEqual(1634);
+  });
+});
+
+describe('limit', () => {
+  it('returns the limit for the sum', () => {
+    const result = limit(5);
+    expect(result).toEqual(354294);
   });
 });

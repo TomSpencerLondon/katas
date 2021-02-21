@@ -1,12 +1,13 @@
-export function sumOfPowers(power: number): number {
-  throw new Error('Unimplemented!');
-}
+import { sumOfPowers } from '../src';
 
-export function sumOfPowersOf(input: number, power: number): number {
-  const digits = input.toString().split('');
-  return digits.reduce((acc, digit) => acc + (parseInt(digit, 10) ** power), 0);
-}
+describe('sumOfPowers', () => {
+  it('returns the sum of all the numbers that can be written as sum of fifth powers of their digits', () => {
+    const result = sumOfPowers(4);
+    expect(result).toEqual(19316);
+  });
 
-export function isSumOfPowersOf(input: number, power: number): boolean {
-  return input === sumOfPowersOf(input, power);
-}
+  it('returns the sum of all the numbers that can be written as sum of fifth powers of their digits', () => {
+    const result = sumOfPowers(5);
+    expect(result).toEqual(443839);
+  });
+});
