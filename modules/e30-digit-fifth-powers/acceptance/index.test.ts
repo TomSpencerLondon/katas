@@ -4,12 +4,7 @@ export function sumOfPowers(power: number): number {
 
 export function sumOfPowersOf(input: number, power: number): number {
   const digits = input.toString().split('');
-  let sum: number = 0;
-  digits.forEach((number) => {
-    sum += parseInt(number, 10) ** power;
-  });
-
-  return sum;
+  return digits.reduce((acc, digit) => acc + (parseInt(digit, 10) ** power), 0);
 }
 
 export function isSumOfPowersOf(input: number, power: number): boolean {
