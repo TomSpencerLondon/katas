@@ -69,7 +69,7 @@ class Position {
   }
 }
 
-export function spiralFromCenter(x: number, y: number): number[][] {
+export function spiralDownFromTopRight(x: number, y: number): number[][] {
   let value: number = x * y;
   const results: number[][] = [];
   for (let i = 0; i < y; i += 1) {
@@ -90,7 +90,7 @@ export function spiralFromCenter(x: number, y: number): number[][] {
 }
 
 export function numberSpiralDiagonals(x: number, y: number): number {
-  const spiral: number[][] = spiralFromCenter(x, y);
+  const spiral: number[][] = spiralDownFromTopRight(x, y);
   let result: number = 0;
   for (let i = 0; i < x; i += 1) {
     result += spiral[i][i];
