@@ -1,13 +1,12 @@
 import { waysOfChangeFor } from '../src';
 
 describe('waysOfChangeFor', () => {
-  it('returns number of ways for 1', () => {
-    const result = waysOfChangeFor(1);
-    expect(result).toEqual(1);
+  it.each([
+    [1, 1],
+    [2, 2],
+    [3, 2],
+  ])('returns number of ways for 1', (amount: number, expected: number) => {
+    const result = waysOfChangeFor(amount);
+    expect(result).toEqual(expected);
   });
-
-  it('returns number of ways for 1', () => {
-    const result = waysOfChangeFor(2);
-    expect(result).toEqual(2);
-  });
-})
+});
