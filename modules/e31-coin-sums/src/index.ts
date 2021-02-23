@@ -1,19 +1,20 @@
-const coins: number[] = [1, 2, 5];
+const coins: number[] = [1, 2, 5, 10, 20, 50, 100, 200];
+const sums: Set<string> = new Set();
 
-export function waysOfChangeFor(amount: number): number {
-  if (amount === 1) {
-    return 1;
+export function waysOfChangeFor(amount: number, coin: number, route: number[]): number {
+  if (amount === 0) {
+    const numbers: number[] = route.sort((a, b) => a - b);
+    sums.add(JSON.stringify(numbers));
+
+    return 0;
   }
 
-  const remainingCoins: number[] = coins.filter((c) => c <= amount);
-  let count: number = 0;
-  remainingCoins.forEach((c) => {
-    if (amount - c === 0) {
-      count += 1;
-    } else if (amount % c === 0) {
-      count += 1;
-    }
-  });
+  if (amount < 0) {
+    return 0;
+  }
 
-  return amount;
+  coins.forEach((c) => {
+    waysOfChangeFor(amount - c, c, [c, ...route]);
+  });
+  return sums.size;
 }
