@@ -31,5 +31,8 @@
     "hooks": {
       "pre-commit": "yarn test:full"
     }
+  },
+  "dependencies": {
+    "polynomial": "^1.4.5"
   }
 }
