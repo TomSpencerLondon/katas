@@ -10,7 +10,5 @@ export function twosComplement(input: number[]): number[] {
     result[j] = 1 - input[j];
   }
 
-  console.log(result);
-
   return result.filter((n) => n !== null);
 }
