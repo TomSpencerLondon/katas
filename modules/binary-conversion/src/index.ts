@@ -3,6 +3,8 @@
 // print x%2
 // x=(x-x%2)/2
 
+const bigInt = require('big-integer');
+
 export function convertToBinary(input: number): number {
   let amount: number = input;
   let bin: number = 0;
@@ -15,4 +17,8 @@ export function convertToBinary(input: number): number {
     i *= 10;
   }
   return bin;
+}
+
+export function bitsNeeded(value: number, exponent: number): number {
+  return Math.ceil(Math.log(value * 10 ** exponent) / Math.log(2));
 }
