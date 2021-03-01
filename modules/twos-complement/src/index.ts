@@ -6,9 +6,11 @@ export function twosComplement(input: number[]): number[] {
     i -= 1;
   }
   result[i] = 1;
-  for (let j = 1; j <= i - 1; j += 1) {
+  for (let j = 0; j <= i - 1; j += 1) {
     result[j] = 1 - input[j];
   }
+
+  console.log(result);
 
   return result.filter((n) => n !== null);
 }
