@@ -20,5 +20,5 @@ export function convertToBinary(input: number): number {
 }
 
 export function bitsNeeded(value: number, exponent: number): number {
-  return Math.ceil(Math.log(value * 10 ** exponent) / Math.log(2));
+  return Math.ceil((Math.log(value) + exponent * Math.log(10)) / Math.log(2));
 }
