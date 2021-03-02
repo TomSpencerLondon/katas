@@ -1,12 +1,12 @@
 export function pandigitalProductSum(): number {
   const products: Set<number> = new Set();
 
-  for (let i = 1; i < 10_000; i += 1) {
-    for (let j = 1; j < 10_000 / i; j += 1) {
+  for (let i = 1; i < 100; i += 1) {
+    for (let j = Math.max(i + 1, Math.floor(1000 / i)); j < 10_000 / i; j += 1) {
       const result = i * j;
       const resultString: string = `${result}${i}${j}`;
       // eslint-disable-next-line no-use-before-define
-      if (resultString.length === 9 && pandigitalCheck(resultString)) {
+      if (pandigitalCheck(resultString)) {
         products.add(result);
       }
     }
@@ -39,6 +39,9 @@ export function getAllPermutations(input: string): string[] {
 // 2. Nested loop each step check if pandigital
 
 export function pandigitalCheck(input: string): boolean {
+  if (input.length !== 9) {
+    return false;
+  }
   const digits: Set<string> = new Set(input.split('')
     .filter((el) => parseInt(el, 10) > 0));
   return digits.size === input.length;

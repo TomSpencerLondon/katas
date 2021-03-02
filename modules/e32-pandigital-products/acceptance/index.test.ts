@@ -7,8 +7,6 @@ describe('pandigitalProductSum', () => {
   });
 });
 
-
-
 describe('pandigitalProductSum2', () => {
   it('returns the product of the sum of the numbers which are pandigital', () => {
     const result = pandigitalProductSum2();
