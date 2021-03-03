@@ -4,6 +4,9 @@ describe('cubeFinder', () => {
   it('returns all the cubes from 0.1 to 10.0', () => {
     const number: {} = cubeFinder();
 
-    expect(number).toEqual({ 0.1: 0.0001 });
+    // @ts-ignore
+    expect(number['0.1']).toEqual(0.001);
+    // @ts-ignore
+    expect(number['0.2']).toEqual(0.008);
   });
 });
