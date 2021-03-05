@@ -3,7 +3,7 @@ import {
   convertNumberToBinary,
   convertToBinary,
   decimalConversionToBinary,
-  fullFloatToBinary
+  fullFloatToBinary,
 } from '../src';
 
 describe('convertToBinary', () => {
@@ -43,20 +43,26 @@ describe('decimalConversionToBinary', () => {
   it('converts decimal fraction to binary', () => {
     const number = decimalConversionToBinary(0.376, 10);
 
-    expect(number).toEqual(0.0110000001);
+    expect(number).toEqual('0.0110000001');
   });
 
   it('converts decimal fraction to binary', () => {
-    const number = decimalConversionToBinary(0.0387, 23);
+    const number = decimalConversionToBinary(0.0387, 30);
 
-    expect(number).toEqual(0.00001001111010000011);
+    expect(number).toEqual('0.000010011110100000111110010000');
   });
 });
 
 describe('fullFloatToBinary', () => {
   it('converts decimal fraction to binary', () => {
-    const number = fullFloatToBinary(5894.376);
+    const number = fullFloatToBinary(5894.376, 23);
 
     expect(number).toEqual('1011100000110.0110000001');
+  });
+
+  it('converts decimal fraction to binary', () => {
+    const number = fullFloatToBinary(0.0387, 32);
+
+    expect(number).toEqual('0.0000100111101000001111100100001');
   });
 });

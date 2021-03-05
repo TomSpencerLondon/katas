@@ -28,7 +28,7 @@ export function convertNumberToBinary(input: number): string {
   return (input >>> 0).toString(2);
 }
 
-export function decimalConversionToBinary(input: number, precision: number): number {
+export function decimalConversionToBinary(input: number, precision: number): string {
   let amount: number = input;
   const digits: number = precision;
   let i: number = 0;
@@ -46,14 +46,14 @@ export function decimalConversionToBinary(input: number, precision: number): num
     amount = floatPart;
   }
 
-  return parseFloat(`0.${result.join('')}`);
+  return `0.${result.join('')}`;
 }
 
-export function fullFloatToBinary(input: number): string {
+export function fullFloatToBinary(input: number, numberOfBits: number): string {
   const intPart = Math.trunc(input);
   const floatPart = Number((input - intPart));
   const integer = convertToBinary(intPart);
-  const decimal = decimalConversionToBinary(floatPart, 10);
+  const decimal = decimalConversionToBinary(floatPart, numberOfBits - integer.toString().length);
 
   return `${integer}${decimal.toString().substring(1)}`;
 }
